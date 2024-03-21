@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leave a Review</title>
+</head>
+<body>
+
+<h2>Leave a Review and Rating for <span th:text="${movie.title}"></span></h2>
+<form method="POST" th:action="@{'/movies/' + ${id} + '/review'}" >
+    <input type="hidden" name="movie_id" th:value="${movie.id}">
+    <label for="reviewText">Review:</label><br/>
+    <textarea id="reviewText" name="reviewText" rows="4" cols="50" required></textarea><br/>
+    <label for="rating">Rating (1-5):</label><br/>
+    <input type="number" id="rating" name="rating" min="1" max="5" required><br>
+    <button type="submit">Submit Review</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+
+<h1>Movie Details for movie <span th:text="${movie.title}"></span></h1>
+<p>Movie ID: <span th:text="${movie.id}"></span></p>
+<p>Title: <span th:text="${movie.title}"></span></p>
+<p>Description: <span th:text="${movie.description}"></span></p>
+<p>Genre: <span th:text="${movie.genre}"></span></p>
+<p>Year: <span th:text="${movie.year}"></span></p>
+
+<a th:href="@{'/movies/{id}/review' (id=${movie.id})}" class="btn btn-primary">Leave a new review</a>
+
+<h2>List of ratings and reviews</h2>
+<h4>Average Rating: <span th:text="${movie.averageRating}"></span> </h4>
+<table>
+    <tr>
+        <th>Rating</th>
+        <th>Review</th>
+    </tr>
+    <tr th:each="review : ${reviews}">
+        <td th:text="${review.rating}"></td>
+        <td th:text="${review.review}"></td>
+    </tr>
+</table>
+
+<br/>
+
+<a id="back" href="/movies" type="button" class="btn btn-primary">Back to movies</a>
+
+</body>
+</html>

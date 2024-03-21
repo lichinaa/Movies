@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form id="filter-form">
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+        <div>
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre">
+        </div>
+
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year">
+
+            <label for="yearFrom">Year From:</label>
+            <input type="number" id="yearFrom" name="yearFrom">
+
+            <label for="yearTo">Year To:</label>
+            <input type="number" id="yearTo" name="yearTo">
+
+        <div>
+            <label for="genres">Genres:</label>
+            <select id="genres" name="genres" multiple>
+                <option th:each="g: ${genres}" th:value="${g}" th:text="${g}"> [Genre]</option>
+            </select>
+        </div>
+        <button type="submit">Filter Movies</button>
+
+    </form>
+    <div>
+        <a href="/movies/add" class="add-item">
+            Add new product
+        </a>
+    </div>
+
+<table>
+    <tr>
+        <th>Movie ID</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Year</th>
+        <th>Average Rating</th>
+        <th>Actions</th>
+        <th>Review/Rating</th>
+
+    </tr>
+
+    <tr class="item" th:each="movie: ${movies}">
+        <td th:text="${movie.id}">[movie.id]</td>
+        <td th:text="${movie.title}">[movie.title]</td>
+        <td th:text="${movie.genre}">[movie.genre]</td>
+        <td th:text="${movie.year}">[movie.year]</td>
+        <td th:text="${movie.averageRating}">[movie.averageRating]</td>
+        <td>
+            <a th:href="@{'/movies/{id}' (id=${movie.id})}" class="details">Details</a>
+        </td>
+        <td>
+            <a th:href="@{'/movies/{id}/review' (id=${movie.id})}" class="btn btn-primary">Leave a Review</a>
+            <a th:href="@{'/movies/{id}/rate' (id=${movie.id})}" class="btn btn-secondary">Add Rating</a>
+        </td>
+    </tr>
+</table>
+
+
+    </div>
+
+</body>
+</html>
