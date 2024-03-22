@@ -47,8 +47,6 @@
         <th>Year</th>
         <th>Average Rating</th>
         <th>Actions</th>
-        <th>Review/Rating</th>
-
     </tr>
 
     <tr class="item" th:each="movie: ${movies}">
@@ -60,15 +58,7 @@
         <td>
             <a th:href="@{'/movies/{id}' (id=${movie.id})}" class="details">Details</a>
         </td>
-        <td>
-            <a th:href="@{'/movies/{id}/review' (id=${movie.id})}" class="btn btn-primary">Leave a Review</a>
-            <a th:href="@{'/movies/{id}/rate' (id=${movie.id})}" class="btn btn-secondary">Add Rating</a>
-        </td>
     </tr>
 </table>
-
-
-    </div>
-
 </body>
 </html>

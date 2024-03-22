@@ -41,16 +41,6 @@ public class MovieServiceImpl implements MovieService {
         return this.movieRepository.save(movie);
     }
 
-//    @Override
-//    public Movie show(Long id, String title, String description, Genre genre, int year) {
-//        Movie movie = this.findById(id);
-//        movie.setTitle(title);
-//        movie.setDescription(description);
-//        movie.setGenre(genre);
-//        movie.setYear(year);
-//
-//        return this.movieRepository.save(movie);
-//    }
 
     @Override
     public List<Movie> listMoviesByFilters(String title, Genre genre, List<Genre> genres, Integer year, Integer yearFrom, Integer yearTo) {
@@ -126,9 +116,5 @@ public class MovieServiceImpl implements MovieService {
         reviewRepository.save(reviewNew);
     }
 
-    @Override
-    public Page<Movie> listAllMoviesPaged(Pageable pageable) {
-        return movieRepository.findAll(pageable);
-    }
 
 }

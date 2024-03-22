@@ -10,7 +10,6 @@ public interface ReviewService {
     Review create(String reviewText, int rating);
     Review addReview(Review review);
     List<Review> getReviewForMovie(Long movieId);
-
     double getAverageRatingForMovie(Long movieId);
 
 }

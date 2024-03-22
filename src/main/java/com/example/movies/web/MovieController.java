@@ -2,16 +2,13 @@ package com.example.movies.web;
 
 import com.example.movies.model.Genre;
 import com.example.movies.model.Movie;
-import com.example.movies.model.MovieDto;
 import com.example.movies.model.Review;
 import com.example.movies.service.MovieService;
 import com.example.movies.service.ReviewService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -87,53 +84,6 @@ public class MovieController {
         return "details.html";
     }
 
-    //ListReviews(/reviews)
-    @GetMapping("/reviews")
-    public String showReview(Model model){
-//        List<Movie> movies = this.movieService.listAllMovies();
-//        List<Movie> movieList= new ArrayList<>();
-//        List<MovieDto> movieDtos = new ArrayList<>();
-//
-//
-//        for (Movie movie : movies) {
-//            double averageRating = reviewService.getAverageRatingForMovie(movie.getId());
-//            List<Review> reviews = reviewService.getReviewForMovie(movie.getId());
-//
-//            Movie movie1 = new Movie();
-//            movie1.setId(movie.getId());
-//            movie1.setTitle(movie.getTitle());
-//            movie1.setDescription(movie.getDescription());
-//            movie1.setGenre(movie.getGenre());
-//            movie1.setYear(movie.getYear());
-//            movie1.setAverageRating(averageRating);
-
-//            if (reviews != null) {
-//                for (Review review : reviews) {
-//                    movie.addReview(review.getReview());
-//                }
-//            }
-
-//            MovieDto movieDto = new MovieDto();
-//            movieDto.setId(movie.getId());
-//            movieDto.setTitle(movie.getTitle());
-//            movieDto.setDescription(movie.getDescription());
-//            movieDto.setGenre(movie.getGenre());
-//            movieDto.setYear(movie.getYear());
-//            movieDto.setAverageRating(averageRating);
-//
-//            if (reviews != null) {
-//                for (Review review : reviews) {
-//                    movieDto.addReview(review.getReview());
-//                }
-//            }
-//
-//            movieDtos.add(movieDto);
-//        }
-
-//        model.addAttribute("movies", movieDtos);
-        return "review.html";
-    }
-
     @GetMapping("/movies/{id}/review")
     public String showReviewForm(@PathVariable Long id, Model model) {
         Movie movie = this.movieService.findById(id);
@@ -154,6 +104,5 @@ public class MovieController {
         this.reviewService.addReview(review);
         return "redirect:/movies/"+ id;
     }
-
 
 }

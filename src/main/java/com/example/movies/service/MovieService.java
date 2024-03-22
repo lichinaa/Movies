@@ -10,10 +10,8 @@ public interface MovieService {
     List<Movie> listAllMovies();
     Movie findById(Long id);
     Movie create(String title, String description, Genre genre, int year);
-//    Movie show(Long id, String title, String description, Genre genre, int year);
     List<Movie> listMoviesByFilters(String title, Genre genre, List<Genre> genres, Integer year, Integer yearFrom, Integer yearTo);
     List<Genre> getAllGemres();
     void addRatingToMovie(Long movieId, int rating);
     void addReviewToMovie(Long movieId, String reviewText);
-
-    Page<Movie> listAllMoviesPaged(Pageable pageable);}
+}

@@ -23,6 +23,4 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findByYearAndGenreIn(Integer year, List<Genre> genres);
     List<Movie> findByYearGreaterThanEqualAndYearLessThanEqualAndGenreIn(Integer yearFrom, Integer yearTo, List<Genre> genres);
 
-
-    Page<Movie> findAll(Pageable pageable);
 }

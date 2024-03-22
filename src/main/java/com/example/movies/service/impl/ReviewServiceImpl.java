@@ -17,7 +17,6 @@ public class ReviewServiceImpl implements ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
-
     @Override
     public Review findById(Long id) {
         return this.reviewRepository.findById(id).orElseThrow(InvalidRatingException::new);

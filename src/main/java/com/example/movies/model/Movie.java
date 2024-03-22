@@ -98,8 +98,5 @@ public class Movie {
     public void setReviewList(List<Review> reviews) {
         this.reviews = reviews;
     }
-//    public void addReview(String review) {
-//        this.reviews.add(review);
-//    }
 
 }
