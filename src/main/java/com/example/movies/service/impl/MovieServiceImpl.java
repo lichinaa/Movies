@@ -8,8 +8,6 @@ import com.example.movies.repository.MovieRepository;
 import com.example.movies.repository.ReviewRepository;
 import com.example.movies.service.MovieService;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,7 +38,6 @@ public class MovieServiceImpl implements MovieService {
         Movie movie = new Movie(title, description, genre, year);
         return this.movieRepository.save(movie);
     }
-
 
     @Override
     public List<Movie> listMoviesByFilters(String title, Genre genre, List<Genre> genres, Integer year, Integer yearFrom, Integer yearTo) {

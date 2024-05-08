@@ -32,7 +32,6 @@ public class ReviewServiceImpl implements ReviewService {
         Review review = new Review();
         review.setReview(reviewText);
         review.setRating(rating);
-
         return reviewRepository.save(review);
     }
 

@@ -70,7 +70,6 @@ public class MovieController {
         return "list.html";
     }
 
-
     //GetMovieDetails(/movies/{id})
     @GetMapping("/movies/{id}")
     public String showDetails(@PathVariable Long id, Model model){
